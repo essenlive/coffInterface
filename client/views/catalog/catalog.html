@@ -1,59 +1,8 @@
 <template name="catalog">
     <div class="ui basic segment cards copy" id="catalog">
-        <div class="card">
-            <div class="image">
-                <img src="/images/c-expresso.jpg">
-            </div>
-            <div class="ui top right attached label">50 p</div>
-            <div class="content">
-                <div class="right floated meta"><i class="heart outline icon"></i></div>
-                Expresso
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="image">
-                <img src="/images/c-cappuccino.jpg">
-            </div>
-            <div class="ui top right attached label">50 p</div>
-            <div class="content">
-                <div class="right floated meta"><i class="heart outline icon"></i></div>
-                Cappuccino
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="image">
-                <img src="/images/c-long.jpg">
-            </div>
-            <div class="ui top right attached label">50 p</div>
-            <div class="content">
-                <div class="right floated meta"><i class="heart outline icon"></i></div>
-                Double
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="image">
-                <img src="/images/c-mokacchino.jpg">
-            </div>
-            <div class="ui top right attached label">50 p</div>
-            <div class="content">
-                <div class="right floated meta"><i class="heart outline icon"></i></div>
-                Mokacchino
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="image">
-                <img src="/images/c-tchaitealatte.jpg">
-            </div>
-            <div class="ui top right attached label">50 p</div>
-            <div class="content">
-                <div class="right floated meta"><i class="heart outline icon"></i></div>
-                Tchai Tea Latte
-            </div>
-        </div>
+        {{#each catalog}}
+        {{> catalogItem}}
+        {{/each}}
     </div>
 
 </template>
