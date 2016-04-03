@@ -1,0 +1,39 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+less
+jquery
+underscore
+accounts-password
+aldeed:collection2
+raix:handlebar-helpers
+audit-argument-checks
+useraccounts:semantic-ui
+natestrauser:animate-css
+dburles:collection-helpers
+
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+tracker
+logging
+random
+ejson
+spacebars
+check
+autopublish
+insecure
+msavin:mongol
+ecmascript
+es5-shim
+standard-minifier-css
+standard-minifier-js
+kadira:flow-router
+kadira:blaze-layout
+semantic:ui-css
+accounts-ui
+ahref:dragula

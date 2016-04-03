@@ -1,0 +1,11 @@
+<template name="header">
+    <header>
+        {{#if currentUser}}
+            {{#if currentUser.username}}
+                <div>Hi {{currentUser.username}}!</div>
+            {{/if}}
+        {{else}}
+            {{> loginButtons}}
+        {{/if}}
+    </header>
+</template>
