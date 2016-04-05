@@ -11,30 +11,51 @@
     }
     #catalog{
         width: 20%;
-        background: yellow;
+        // background: yellow;
         height: 100%;
         overflow: scroll;
     }
     #dispatch{
+        background: url("/images/wov.png") repeat;
+        position: relative;
         height: 100%;
         width: 50%;
         #preview{
+            // background: red;
             width: 100%;
-            background: red;
             height: 30%;
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            .image{
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                img{
+                    min-height: 100%;
+                    min-width: 100%;
+                }
+            }
+            &>.segment{
+                margin: 0;
+                width: 50%;
+                height: 100%;
+                overflow: scroll;
+            }
         }
         #spouts{
             width: 100%;
-            background: blue;
+            // background: blue;
             height: 70%;
             padding: 20% 22%;
             .spout{
+                background: white;
                 display: inline-block;
                 margin: 1rem 3rem;
                 width: 4rem;
                 height: 4rem;
                 border-radius: 50%;
-                background: white;
+                // background: white;
                 border: solid 1px gray;
                 overflow: hidden;
                 .card, .card .image, .card .image img{ width: 100%; height: 100%; }
@@ -45,6 +66,27 @@
                 }
             }
         }
+        #bin{
+            position: absolute;
+            bottom: -5rem;
+            left: 0;
+            right: 0;
+            height: 10rem  ;
+            width: 10rem ;
+            line-height: 2rem;
+            font-size: 1rem;
+            text-align: center;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            &:hover{
+                bottom: -12.5rem;
+                height: 25rem  ;
+                width: 25rem;
+                padding: 8rem;
+            }
+        }
     }
     #payment{
         display: flex;
@@ -52,7 +94,7 @@
         justify-content: center;
         width: 30%;
         height: 100%;
-        background: grey;
+        // background: grey;
         height: 100%;
     }
 }

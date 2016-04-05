@@ -23,7 +23,8 @@ Template.interface.onRendered(function(){
             copy: function (el, source) {
                 // DEBUG: only copy when parent element has copy class
                 // return el.parent().hasClass("copy");
-                return true;
+                console.log(source.classList.contains('copy'));
+                return source.classList.contains('copy');
             }
         }
     );
