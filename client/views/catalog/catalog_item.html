@@ -1,12 +1,12 @@
 <template name="catalogItem">
     <div class="card">
-        <div class="image">
+        <a href="/{{name}}" class="image" >
             <img src="/images/{{preview}}.jpg">
-        </div>
+        </a>
         <div class="ui top right attached label">$ {{price}}</div>
-        <div class="content">
+        <a href="/{{name}}"  class="content">
             <div class="right floated meta"><i class="heart outline icon"></i></div>
             {{name}}
-        </div>
+        </a>
     </div>
 </template>
