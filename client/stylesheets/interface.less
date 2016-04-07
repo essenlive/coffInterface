@@ -1,4 +1,5 @@
 #interface{
+    background: url("/images/wov.png") repeat;
     display: flex;
     flex-direction: row;
     flex: auto;
@@ -11,12 +12,11 @@
     }
     #catalog{
         width: 20%;
-        // background: yellow;
+        background: white;
         height: 100%;
         overflow: scroll;
     }
     #dispatch{
-        background: url("/images/wov.png") repeat;
         position: relative;
         height: 100%;
         width: 50%;
@@ -92,15 +92,31 @@
         }
     }
     #payment{
-        background: url("/images/wov.png") repeat;
         display: flex;
         flex-direction: column;
         justify-content: space-between;;
         width: 30%;
         height: 100%;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
         // background: grey;
         height: 100%;
+        #sum{
+            .right{
+                text-transform: uppercase;
+                font-weight: bold;
+                text-align: center;
+                font-size: 2rem;
+                color: blue;
+            }
+        }
         #bill{
+            .header {
+                text-transform: uppercase;
+                font-weight: 100;
+                text-align: center;
+                font-size: 2rem;
+            }
             margin: 2rem 0.5rem;
             padding: 1rem;
             background: white;
