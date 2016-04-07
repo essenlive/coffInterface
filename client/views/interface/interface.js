@@ -18,13 +18,18 @@ Template.interface.onRendered(function(){
             document.querySelector('#spout4'),
             document.querySelector('#spout5'),
             document.querySelector('#spout6'),
+            document.querySelector('#bin'),
         ],
         {
             copy: function (el, source) {
-                // DEBUG: only copy when parent element has copy class
-                // return el.parent().hasClass("copy");
-                console.log(source.classList.contains('copy'));
+                console.log( source.classList.contains('copy') );
                 return source.classList.contains('copy');
+            },
+            accepts: function (el, target) {
+                var catAcceptance = !target.classList.contains('copy');
+                // var spoutAcceptance = target.is(':empty');
+                // console.log(spoutAcceptance);
+                return catAcceptance;
             }
         }
     );
