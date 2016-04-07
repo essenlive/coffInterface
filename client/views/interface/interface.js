@@ -3,12 +3,18 @@ Template.interface.helpers({
 
 Template.interface.events({
 
-    'drop': function (event, template) {
-        console.log("test");
+    'click #bin': function (event, template) {
+        $(".spout").empty();
+        refresh();
+    },
+    'click #pay': function (event, template) {
+        var receipt = JSON.stringify(refresh());
+        alert(receipt);
     }
 });
 
 Template.interface.onRendered(function(){
+    refresh();
     dragula(
         [
             document.querySelector('#catalog'),
@@ -22,15 +28,26 @@ Template.interface.onRendered(function(){
         ],
         {
             copy: function (el, source) {
-                console.log( source.classList.contains('copy') );
-                return source.classList.contains('copy');
+                return $(source).hasClass('copy');
             },
             accepts: function (el, target) {
-                var catAcceptance = !target.classList.contains('copy');
-                // var spoutAcceptance = target.is(':empty');
-                // console.log(spoutAcceptance);
-                return catAcceptance;
+                return !$(target).hasClass('copy');
             }
         }
-    );
+    ).on('over', function (el, container) {
+        if($(container).hasClass('bin')){
+            container.className += ' hover';
+        }
+    }).on('out', function (el, container) {
+        if($(container).hasClass('bin')){
+            container.className = container.className.replace('hover', '');
+        }
+    }).on('dragend', function (el) {
+        refresh();
+    }).on('drop', function (el, target, source, sibling) {
+        if($(target).hasClass('spout')){
+            $(target).empty();
+            $(target).prepend($(el));
+        }
+    })
 });
