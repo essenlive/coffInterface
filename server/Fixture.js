@@ -1,5 +1,27 @@
 // Fake values to fill the database
 Meteor.startup(function() {
+
+    // // change the path and baudrate to match your setup
+    // var serialPort = new SerialPort.SerialPort('/COM5', {
+    //     baudrate: 9600,
+    //     parser: SerialPort.parsers.readline('\r\n')
+    // });
+
+    // serialPort.on('open', function() {
+    //     console.log('Port open');
+    //     // serialPort.write('a')
+    // });
+
+    // readPort = function(){
+    //     serialPort.on('data', function(data) {
+    //         console.log('message ' + data);
+    //     });
+    // }
+    // Meteor.setInterval(readPort, 10000);
+
+
+
+
     if (Catalog.find().count() === 0) {
         Catalog.insert({
             name: 'expresso',

@@ -6,11 +6,7 @@
 less
 jquery
 underscore
-accounts-password
-aldeed:collection2
 raix:handlebar-helpers
-audit-argument-checks
-useraccounts:semantic-ui
 natestrauser:animate-css
 dburles:collection-helpers
 
@@ -21,8 +17,6 @@ blaze-html-templates
 session
 tracker
 logging
-random
-ejson
 spacebars
 check
 autopublish
@@ -34,7 +28,6 @@ standard-minifier-css
 standard-minifier-js
 kadira:flow-router
 kadira:blaze-layout
-semantic:ui-css
-accounts-ui
 ahref:dragula
 fourquet:serialport
+meyerweb-reset

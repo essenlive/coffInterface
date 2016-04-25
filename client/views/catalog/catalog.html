@@ -1,8 +1,15 @@
 <template name="catalog">
-    <div class="ui basic segment cards copy" id="catalog">
-        {{#each catalog}}
-        {{> catalogItem}}
-        {{/each}}
-    </div>
+
+	<div id="catalog">
+		<h2 id="help">Drag your coffee(s)
+			<span>Tap to show price.
+			</span>
+		</h2>
+		<ul id="drinks" class="copy">
+			{{#each catalog}}
+			{{> catalogItem}}
+			{{/each}}
+		</ul>
+	</div>
 
 </template>

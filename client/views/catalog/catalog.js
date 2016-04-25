@@ -1,8 +1,5 @@
 Template.catalog.helpers({
-    catalog: function() {
-        return Catalog.find();
-    }
-});
-
-Template.catalog.events({
+	catalog: function() {
+		return Catalog.find();
+	}
 });
