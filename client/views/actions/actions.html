@@ -1,0 +1,18 @@
+<template name="actions">
+    <div id="actions">
+        <div id="total">
+            {{total}} €
+        </div>
+
+        <div id="confirm" class="{{#if order.valid}}enabled{{/if}}">
+            <a href="/payment">
+                Confirm
+            </a>
+        </div>
+
+        <div id="maintenance">
+            Maintenance mode
+        </div>
+
+    </div>
+</template>

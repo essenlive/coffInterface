@@ -1,0 +1,26 @@
+<template name="payment">
+	<section id="payment" class="{{ status.state }}">
+		<h2 id="payment-help">Payment
+			<span>Beep your card
+			</span>
+		</h2>
+		<div id="payment-total">
+			{{{ status.content }}}
+		</div>
+		<div id="payment-order">
+			<p>You have ordered:</p>
+			<ul>
+
+				{{#each drinks}}
+				<li>
+					{{ drink }}
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+		<a href="/" id="payment-abort">
+			back to ordering
+		</a>
+	</section>
+
+</template>

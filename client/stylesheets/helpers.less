@@ -2,40 +2,35 @@
 
 /* -------------------
     Helper styles
-   ------------------- */
+    ------------------- */
 
-.hidden {
-    display: none;
-}
+    .hidden {
+        display: none;
+    }
+    .aligned {
+        &.center {
+            text-align: center;
+        }
 
-.padding-wrapper {
-    padding: 20px;
-}
+        &.left {
+            text-align: left;
+        }
 
-.aligned {
-    &.center {
-        text-align: center;
+        &.right {
+            text-align: right;
+        }
     }
 
-    &.left {
-        text-align: left;
-    }
+    .link {
+        &.unstyled {
+            color: inherit;
+        }
 
-    &.right {
-        text-align: right;
-    }
-}
+        &.no-underline {
+            text-decoration: none;
+        }
 
-.link {
-    &.unstyled {
-        color: inherit;
+        &.no-hover-styles:hover {
+            color: inherit;
+        }
     }
-
-    &.no-underline {
-        text-decoration: none;
-    }
-
-    &.no-hover-styles:hover {
-        color: inherit;
-    }
-}

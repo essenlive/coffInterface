@@ -3,7 +3,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-less
 jquery
 underscore
 raix:handlebar-helpers
@@ -31,3 +30,7 @@ kadira:blaze-layout
 ahref:dragula
 fourquet:serialport
 meyerweb-reset
+fortawesome:fontawesome
+msavin:jetsetter
+flemay:less-autoprefixer
+numeral:numeral

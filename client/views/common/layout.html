@@ -1,3 +1,11 @@
 <template name="layout">
-	{{>Template.dynamic template=content}}
+	<main id="interface" class="{{ state }}">
+		{{> header}}
+		{{> catalog}}
+		{{> spouts}}
+		{{> actions}}
+		{{#if $eq state "payment"}}
+		{{>payment}}
+		{{/if}}
+	</main>
 </template>

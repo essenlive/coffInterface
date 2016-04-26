@@ -1,23 +1,42 @@
 //
 // Refresh receipt
-
+Meteor.startup(function(){
+    Session.set('command', {} );
+});
 refresh = function(){
-    var spouts = ["spout1","spout2","spout3","spout4"]
-    var receipt = [];
-    var command = [];
+    var display = $("#spouts").children();
+    var spouts = [];
+    var drinks = [];
     var total = 0;
-    $.each(spouts, function(index, value){
-        item = "#" + value;
-        receipt[index] = {
-            drink : $(item).data("item"),
-            price : $(item).data("price"),
-        };
-        command[index] = $(item).data("item");
+    var valid = false;
+    var i = 0;
+    _.each(display, function(element, index, value){
+        spouts[index] = $(element).find('.drink').data("item");
+        if(_.isNumber($(element).find('.drink').data("price"))){
+            drinks[i] = {
+                drink : $(element).find('.drink').data("item"),
+                price : Number($(element).find('.drink').data("price")),
+            };
+            i++;
+            total += Number($(element).find('.drink').data("price"));
+            valid = true;
+        }
+        else{
+            $(element).removeClass('ready');
+            $(element).empty();
+        }
 
     })
-    $.each(receipt, function(key, value){
-        total += value.price;
-    })
-    $("#price").html('$' + total)
+    command = {
+        spouts : spouts,
+        order : {
+            drinks : drinks,
+            total : total,
+            valid : valid,
+        }
+    }
+    Session.set('command', command )
+
+    $("#price").html('€ ' + total)
     return command;
 }

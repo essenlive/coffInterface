@@ -3,160 +3,359 @@
 @import 'variables';
 
 /* -------------------
-    Main Content
-    ------------------- */
-    *{box-sizing: border-box;}
-    html{
-        font-size: @baseline;
-        font-family: @sans-serif;
-        body{
-            #interface{
-                background: @blue-bg;
-                display: flex;
-                flex-direction: column;
-                position: fixed;
-                top: 0 ; left: 0;
-                height: 100vh;
-                width: 100vw;
-                overflow: hidden;
-                #header{
-                    position: absolute;
-                    top: 0;
-                    left: 0; right: 0;
-                    width: 100%;
-                    height: 5rem;
-                    line-height: 5rem;
-                    text-align: center;
-                    font-size: 1.5rem;
-                    text-transform: uppercase;
-                }
-                #catalog{
-                    background: @gray;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    width: 100%;
-                    height: 55%;
-                    #help{
-                        margin: 2rem 0;
-                        text-align: center;
-                        font-size: 2.1rem;
-                        span{
-                            display: block;
-                            font-size: 1.2rem;
-                        }
-                    }
-                    #drinks{
-                        margin: 2rem 10%;
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        .drink{
-                            display: block;
-                            width: 33%;
-                            img{
-                                display: block;
-                                margin: auto;
-                                width: 100px;
-                                height: 100px;
-                                border-radius: 50%;
-                            }
-                            .price{
-                                display: none;
-                            }
-                            .name{
-                                text-align: center;
-                                padding: 1rem 0;
-                                font-size: 1.5rem; 
-                            }
-                        }
-                    }
-                }
-                #spouts{
-                    width: 100%;
-                    height: 400px;
-                    position: relative;
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    padding: 50px 2rem;
-                    @width: 175px;
-                    @height: 300px;
-                    &::before{
+Main Content
+------------------- */
 
-                        position: absolute;
-                        content: "";
-                        display: block;
-                        width: @width;
-                        height: @height;
-                        border: 2px white solid;
-                        border-radius: 4.5rem;
-                        margin: auto;
-                        left: 0; right: 0;
-                    }
-                    .spout{
-                        width: 50%;
-                        height: 50%;
-                        position: relative;
-                        &::before{
-                            position: absolute;
-                            content: "";
-                            display: block;
-                            width: 35px;
-                            height: 20px;
-                            background: white;
-                            top: @height/4;
-                            margin-top: -10px;
-                            border: 1px solid white;
-                        }
-                        &:nth-child(odd)::before{margin-right: @width/2; right: 0;}
-                        &:nth-child(even)::before{margin-left: @width/2; left: 0;}
-                        &.ready::before{ background: transparent;}
-                        &.ready:nth-child(odd)::after{margin-right: @width/2; right: 0;}
-                        &.ready:nth-child(even)::after{margin-left: @width/2; left: 0;}
-                        
+*{box-sizing: border-box;}
+html{
+	font-size: @baseline;
+	font-family: @sans-serif;
+	a{
+		text-decoration: none;
+		&:visited, &:hover{
+			color: inherit;
+		}
+	}
+	body{
+		#interface{
+			background: @blue-bg;
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			top: 0 ; left: 0;
+			height: 100vh;
+			width: 100vw;
+			overflow: hidden;
+			&.payment{
+				#header, #catalog, #spouts, #actions{
+					filter: blur(20px); 
+				}
+			}
+			#header{
+				position: absolute;
+				top: 0;
+				left: 0; right: 0;
+				width: 100%;
+				height: 5rem;
+				line-height: 5rem;
+				text-align: center;
+				font-size: 1.5rem;
+				text-transform: uppercase;
+			}
+			#catalog{
+				background: @gray;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				width: 100%;
+				height: 50%;
+				#help{
+					margin: 1rem 0;
+					text-align: center;
+					font-size: 1.2rem;
+					span{
+						display: block;
+						margin-top: 0.5rem;
+						font-size: 0.8rem;  
+					}
+				}
+				#drinks{
+					margin: 1rem 10%;
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					justify-content: center;
+					.drink{
+						display: block;
+						width: 33%;
+						img{
+							display: block;
+							margin: auto;
+							width: 100px;
+							height: 100px;
+							border-radius: 50%;
+						}
+						.price{
+							display: none;
+						}
+						.name{
+							text-align: center;
+							padding: 1rem 0;
+							font-size: 0.8rem; 
+						}
+					}
+				}
+			}
+			#spouts{
+				width: 100%;
+				height: 400px;
+				position: relative;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				padding: 50px 2rem;
+				@width: 175px;
+				@height: 300px;
+				&::before{
 
+					position: absolute;
+					content: "";
+					display: block;
+					width: @width;
+					height: @height;
+					border: 2px white solid;
+					border-radius: 75px;
+					margin: auto;
+					left: 0; right: 0;
+				}
+				.spout{
+					width: 50%;
+					height: 50%;
+					position: relative;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: flex-start;
+					.drink{
+						display: block;
+						width: 100px;
+						margin: 0 1rem;
+						position: relative;
+						img{
+							display: block;
+							margin: auto;
+							width: 50px;
+							height: 50px;
+							border-radius: 50%;
+						}
+						.price{
+							display: none;
+						}
+						.name{
+							position: absolute;
+							top: 100%;
+							color: white;
+							text-align: center;
+							padding: 0.5rem 0;
+							font-size: 0.8rem;
+							width: 100%;
+						}
+					}
+					& .fa{
+						display: block;
+						height: 1.5rem;
+						width: 1.5rem;
+						border-radius: 50%;
+						color: @blue-bg;
+						background: white;
+						text-align: center;
+						line-height: 1.5rem;
+					}
 
-                        &.busy::before{ background: @blue; border: @blue;}
-                        &:hover::before{ background: @green; border: @green;}
-                    }
-                }
-                #payment{
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    display: flex;  
-                    flex-direction: row;
-                    justify-content: space-around;
-                    width: 100%;
-                    height: 4rem;
-                    text-align: center;
-                    color: white;
-                    div{
-                        width: 25%;
-                        line-height: 4rem;
-                        font-size: 1.5rem;
-                        font-weight: 300;
-                    }
-                    #price{
-                        border-left: 1px solid @green;
-                        padding-left: 1rem;
-                        text-align: left;
+					&:nth-child(odd){
+						padding-right: @width/2;
+						flex-flow: row-reverse;
+					}
+					&:nth-child(even){
+						padding-left: @width/2;
+					}
 
-                    }
-                    #pay{
-                        background: @green;
-                        text-transform: uppercase;
-                    }
-                    #maintenance{
-                        border-right: 1px solid white;
-                        padding-right: 1rem;
-                        text-align: right;
-                        text-transform: capitalize;
-                    }
-                }
-            }
-        }
-    }
+					&::before{
+						background: @blue;
+						border: solid 1px @blue;
+						content: "";
+						display: block;
+						width: 35px;
+						height: 20px;
+						margin-top: -10px;
+					}
+					&.ready::before{ background: transparent; border: solid 1px white;}
+					&.busy::before{ background: white; border: solid 1px white;}
+					&.hover::before{ background: @green; border: solid 1px @green;}
+				}
+			}
+			#actions{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				display: flex;  
+				flex-direction: row;
+				justify-content: space-around;
+				width: 100%;
+				height: 3rem;
+				text-align: center;
+				color: white;
+				div{
+					width: 25%;
+					line-height: 3rem;
+					font-size: 1.2rem;
+					font-weight: 300;
+				}
+				#total{
+					border-left: 1px solid @green;
+					padding-left: 1rem;
+					text-align: left;
+
+				}
+				#confirm{
+					background: @green-disabled;
+					text-transform: uppercase;
+					&.enabled{
+						background: @green;
+					}
+				}
+				#maintenance{
+					border-right: 1px solid white;
+					padding-right: 1rem;
+					font-size: 0.8rem;
+					text-align: right;
+					text-transform: capitalize;
+				}
+			}
+			#payment{
+				width: 100%;
+				height: 100%;
+				padding-top: 5rem;
+				background: @blue-bg-alpha;
+				color: white;
+				position: absolute;
+				top: 0; right: 0; left: 0; bottom: 0;
+				display: flex;
+				flex-flow: column;
+				justify-content: space-between;
+				text-align: center;
+				&>div{
+					margin: auto;
+				}
+				#payment-help{
+					margin: 1rem 0;
+					text-align: center;
+					font-size: 1.2rem;
+					text-transform: uppercase;
+					span{
+						text-transform: capitalize;
+						display: block;
+						font-size: 0.8rem;
+						margin-top: 0.5rem;
+					}
+
+				}
+				#payment-total{
+					display: block;
+					height: 40vw;
+					width: 40vw;
+					border-radius: 50%;
+					border: 2px solid white;
+					position: relative;
+					&::before{
+						content: "";
+						position: absolute;
+						display: block;
+						height: 41vw;
+						width: 41vw;
+						border-radius: 50%;
+						border: 1px solid white;
+						top: -1vw; left: -1vw;
+					}
+					.fa{
+						font-size: 4.5rem;
+						line-height: 40vw;
+					}
+					div{
+						position: absolute;
+						bottom: 2.5rem;
+						width: 100%;
+						font-size: 1.5rem;
+						font-weight: 300;
+					}
+
+				}
+				#payment-order{
+					p{
+						margin: 1rem auto;
+					}
+					li{
+						position: relative;
+						text-transform: uppercase;
+						font-weight: 300;
+						font-size: 1.3rem;
+						margin: 0.5rem auto;
+						line-height: 1.5rem;
+						height: 1.5rem;
+						text-align: left;
+						padding-left: 1rem; 
+						&:before{
+							content: "";
+							display: block;
+							height: 0.75rem;
+							width: 0.75rem;
+							border-radius: 50%;
+							background: @blue;
+							right: 100%; top: 0;
+							margin: 0.5rem;
+							line-height: 1.5rem;
+							position: absolute;
+						}
+					}
+				}
+				#payment-abort{
+					width: 25%;
+					line-height: 2rem;
+					font-size: 1.2rem;
+					font-weight: 300;
+					height: 2rem;
+					margin: 1rem auto;
+					background: transparent;
+					color: white;
+					border: none;
+					font-weight: 300;
+					border-bottom: 1px solid white;
+				}
+				&.success{
+					#payment-total{
+						background: @green;
+						border-color: @green;
+						&::before{
+							border-color: @green;
+
+						}
+					}
+					#payment-abort{
+						display:none;
+					}
+
+				}
+				&.fail{
+					#payment-total{
+						background: @red;
+						border-color: @red;
+						&::before{
+							border-color: @red;
+
+						}
+					}
+					#payment-abort{
+						display:none;
+					}
+				}
+			}
+		}
+	}
+	.gu-mirror{
+		display: block;
+		width: 100px;
+		margin: 0 1rem;
+		position: relative;
+		img{
+			display: block;
+			margin: auto;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+		}
+		.price, .name{
+			display: none;
+		}
+	}
+}
