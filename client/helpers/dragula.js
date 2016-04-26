@@ -6,8 +6,6 @@ dragAndDrop = function(){
         document.querySelector('#spout2'),
         document.querySelector('#spout3'),
         document.querySelector('#spout4'),
-        document.querySelector('#spout5'),
-        document.querySelector('#spout6'),
         ],
         {
             copy: function (el, source) {

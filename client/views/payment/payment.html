@@ -1,7 +1,24 @@
 <template name="payment">
 	<section id="payment" class="{{ status.state }}">
+
+		<div id="test">
+			<button id="pending">
+				pending
+			</button>
+			<button id="fail">
+				fail
+			</button>
+			<button id="success">
+				success
+			</button>
+			<button id="reset">
+				reset
+			</button>
+		</div>
+
 		<h2 id="payment-help">Payment
-			<span>Beep your card
+			<span>			
+				{{ status.help }}
 			</span>
 		</h2>
 		<div id="payment-total">

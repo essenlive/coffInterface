@@ -225,6 +225,23 @@ html{
 				flex-flow: column;
 				justify-content: space-between;
 				text-align: center;
+				#test{
+					position: absolute;
+					top: 0;
+					right: 0;
+					display: flex;
+					flex-flow: row;
+					justify-content: flex-end;
+					width: 100%;
+					button{
+						flex: 1;
+						background: transparent;
+						border: @white 1px solid;
+						color: white;
+						padding: 0.5rem;
+						font-size: 0.8rem;
+					}
+				}
 				&>div{
 					margin: auto;
 				}
@@ -272,6 +289,7 @@ html{
 
 				}
 				#payment-order{
+					padding-bottom: 10rem;
 					p{
 						margin: 1rem auto;
 					}
