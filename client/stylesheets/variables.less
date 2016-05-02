@@ -1,17 +1,49 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+/*------------------------------
+		TYPOGRAPHY
+		------------------------------*/
+		@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+		@sans-serif: "Lato", Helvetica, sans-serif;
+		@baseline: 20px;
 
-// Colors
+/*------------------------------
+		COLORS
+		------------------------------*/
+		@gray: rgb(247, 248, 249);
+		@blue: rgb(84, 164, 224);
+		@blue-bg: rgb(27, 48, 64);
+		@blue-bg-light: rgb(36, 64, 81);
+		@blue-bg-alpha: rgba(27, 48, 64, 0.8);
+		@green: rgb(71, 200, 96);
+		@green-disabled: rgb(173, 216, 179);
+		@red: rgb(219, 40, 40);
+		@white: rgb(255, 255, 255);
 
-@gray: rgb(247, 248, 249);
-@blue: rgb(84, 164, 224);
-@blue-bg: rgb(27, 48, 64);
-@blue-bg-alpha: rgba(27, 48, 64, 0.8);
-@green: rgb(71, 200, 96);
-@green-disabled: rgb(173, 216, 179);
-@red: rgb(219, 40, 40);
-@white: rgb(255, 255, 255);
+/*------------------------------
+		LAYOUT
 
-// Typography
++-------------------+
+|	header  		|
++-------------------+
+|	catalog 		|
+|					|
++-----------+-------+
+|	spouts	|actions|
+|	+---+	|		|
+|	|mac|	|		|
+|	+---+	|		|
++-----------+-------+
 
-@sans-serif: "Lato", Helvetica, sans-serif;
-@baseline: 20px;
+------------------------------*/
+
+@header-height : 5rem;
+@header-width : 100%;
+@catalog-height : 60%;
+@catalog-width : 100%;
+
+@spouts-height : 40%;
+@spouts-width : 70%;
+@machine-width: 25%;
+@machine-height: 75%;
+
+@actions-height : 40%;
+@actions-width : 30%;

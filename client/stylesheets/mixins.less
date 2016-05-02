@@ -1,0 +1,30 @@
+@import 'variables';
+
+/*------------------------------
+        MIXINS
+        ------------------------------*/
+
+
+        /*FLEX - Homemade, not durable*/
+        .flex(@flow: row; @justify: flex-start; @wrap: nowrap; @align: stretch ; ) {
+        	display: flex;
+        	flex-flow: @flow; 
+        	justify-content: @justify;
+        	flex-wrap: @wrap;
+        	align-items: @align;
+        }
+
+        /*DIMENSIONS - Homemade, not durable*/
+        .dim(@h; @w) {
+        	height: @h;
+        	width: @w;
+        }
+
+        /*POSITION - Homemade, not durable*/
+        .pos( @pos: relative; @t: auto; @r: auto; @b: auto; @l: auto;) {
+        	position: @pos;
+        	top: @t;
+        	right: @r;
+        	bottom: @b;
+        	left: @l;
+        }
