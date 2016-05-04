@@ -1,8 +1,9 @@
-//
 // Refresh receipt
 Meteor.startup(function(){
 	Session.set('command', {} );
+	refresh();
 });
+
 refresh = function(){
 	var display = $("#spouts").children();
 	var spouts = [];

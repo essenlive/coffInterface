@@ -8,12 +8,12 @@
                 {{total}} €
             </p>
         </div>
-
-        <div id="confirm" class="{{#if order.valid}}enabled{{/if}}">
+        {{#if order.valid}}
+        <div id="confirm" class="enabled">
             <a href="/payment">
                 Confirm
             </a>
         </div>
-
+        {{/if}}
     </div>
 </template>

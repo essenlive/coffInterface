@@ -31,6 +31,9 @@ Template.layout.events({
 });
 
 Template.layout.onRendered(function(){
-	refresh();
-	dragAndDrop();
+	setTimeout(function(){
+		refresh();
+		dragAndDrop();
+	}, 1000);
+	
 });
