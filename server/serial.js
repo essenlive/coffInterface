@@ -12,8 +12,9 @@ Meteor.startup(function() {
 });
 
 Meteor.methods({
-	// sendToSerialPort: function (message) {
-	// 	serialPort.write(message);
-	// 	return message;
-	// },
+	sendToSerialPort: function (message) {
+		// serialPort.write(message);
+		console.log(message);
+		return message;
+	},
 });

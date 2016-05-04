@@ -10,9 +10,28 @@ refresh = function(){
 	var drinks = [];
 	var total = 0;
 	var valid = false;
+	var messageUno = ["a","a","a","a",0,"z"];
 	var i = 0;
 	_.each( display, function(element, index, value){
 		spouts[index] = $(element).find('.drink').data("item");
+		console.log($(element).find('.drink').data("item"));
+		if ( !$(element).find('.drink').data("item") ){
+			messageUno[index] = "a";
+		}
+		else {
+			switch($(element).find('.drink').data("item")){
+				case "expresso":
+				messageUno[index] = "b";
+				break;
+				case "lungo":
+				messageUno[index] = "c";
+				break;
+				default:
+				messageUno[index] = "d";
+			};
+		};
+		
+
 		if(_.isNumber($(element).find('.drink').data("price"))){
 			drinks[i] = {
 				drink : $(element).find('.drink').data("item"),
@@ -26,8 +45,11 @@ refresh = function(){
 			$(element).removeClass('ready');
 			$(element).empty();
 		}
-
 	})
+
+	messageUno[4] = 0;
+	messageUno[5] = "z";
+	console.log(messageUno);
 	command = {
 		spouts : spouts,
 		order : {
@@ -44,5 +66,9 @@ refresh = function(){
 		refresh();
 	})
 	$("#price").html('€ ' + total)
+
+	Meteor.call("sendToSerialPort",messageUno);
+
+
 	return command;
 }
