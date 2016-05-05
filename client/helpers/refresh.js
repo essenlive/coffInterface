@@ -1,16 +1,5 @@
 // Refresh receipt
 Meteor.startup(function(){
-	Session.set('command', {
-		"spouts":[null,null,null,null],
-		"order":{
-			drinks: [],
-			total: 0,
-			valid: false,
-			payment: "pending",
-		},
-		serving:""
-	});
-	refresh();
 });
 
 refresh = function(){

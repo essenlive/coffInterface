@@ -19,14 +19,34 @@
 		APP STYLES
 		------------------------------*/
 
+		&.test{
+			font-size: 16px;
+			background: url("/pat.png") repeat;
+			body{
+
+				.pos(absolute;0;0;0;0);
+				height: 1024px;
+				width: 768px;
+				zoom: 0.6;
+				margin: auto;
+				#interface{
+					position: absolute;
+					top: 0 ; left: 0; right: 0; bottom: 0;
+					height: 100%;
+					width: 100%;
+
+				}
+			}
+		}
 
 		body{
+
 
 			#interface{
 				background: @blue-bg;
 				.flex( @wrap: wrap;);
 				position: fixed;
-				top: 0 ; left: 0;
+				top: 0 ; left: 0; right: 0; bottom: 0;
 				height: 100vh;
 				width: 100vw;
 				overflow: hidden;
@@ -258,17 +278,15 @@
 			}
 			#payment-total{
 				display: block;
-				height: 40vw;
-				width: 40vw;
+				min-height: 16rem;
+				width: 16rem;
 				border-radius: 50%;
 				border: 2px solid white;
 				.pos();
 				&::before{
-					.pos(absolute;-1vw;auto; auto; -1vw;);
+					.pos(absolute;-0.5rem;-0.5rem; -0.5rem; -0.5rem;);
 					content: "";
 					display: block;
-					height: 41vw;
-					width: 41vw;
 					border-radius: 50%;
 					border: 1px solid white;
 				}

@@ -36,8 +36,27 @@ Template.layout.events({
 
 });
 
+
 Template.layout.onRendered(function(){
+	if (Meteor.Device.isDesktop()) {
+		$("html").addClass("test");
+	}
 	setTimeout(function(){
+		refresh();
 		dragAndDrop();
 	}, 1000);
+});
+Template.layout.onCreated(function(){
+	Session.set('command', {
+		"spouts":[null,null,null,null],
+		"order":{
+			drinks: [],
+			total: 0,
+			valid: false,
+			payment: "pending",
+		},
+		serving:""
+	});
+	refresh();
+
 });
