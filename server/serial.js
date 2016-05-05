@@ -2,7 +2,7 @@ Meteor.startup(function() {
 
     // change the path and baudrate to match your setup
     // serialPort = new SerialPort.SerialPort('/COM5', {
-    //     baudrate: 9600,
+    //     baudrate: 3400,
     //     parser: SerialPort.parsers.readline('\r\n')
     // });
 

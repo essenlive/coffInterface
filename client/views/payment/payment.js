@@ -33,25 +33,24 @@ Template.payment.helpers({
 })
 Template.payment.events({
 
-
-	'click #pending': function (event, template) {
-		var status = Session.get("command");
-		status.order.payment = "pending";
-		Session.set("command", status);
-	},
 	'click #fail': function (event, template) {
 		var status = Session.get("command");
 		status.order.payment = "fail";
 		Session.set("command", status);
+		setTimeout(function(){
+			var display = $("#spouts").children().empty();
+			FlowRouter.go("/home");
+			refresh();
+		}, 5000);
 	},
 	'click #success': function (event, template) {
 		var status = Session.get("command");
 		status.order.payment = "success";
 		Session.set("command", status);
+		setTimeout(function(){
+			var display = $("#spouts").children().empty();
+			FlowRouter.go("/home");
+			refresh();
+		}, 5000);
 	},
-	'click #reset': function (event, template) {
-		var display = $("#spouts").children().empty();
-		refresh();
-		FlowRouter.go("/home");
-	},
-})
+});

@@ -27,13 +27,17 @@ Template.layout.events({
 		}
 		refresh();
 	},
+	'click .remove':function(event, template) {
+		object = event.currentTarget;
+		$( object ).parent().removeClass("ready") ; 
+		$( object ).parent().empty() ;
+		refresh();
+	}
 
 });
 
 Template.layout.onRendered(function(){
 	setTimeout(function(){
-		refresh();
 		dragAndDrop();
 	}, 1000);
-	
 });
