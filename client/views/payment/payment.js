@@ -2,25 +2,26 @@ Template.payment.helpers({
 	status: function(){
 		var total = numeral(Session.get('command').order.total).format('000.00');
 		var status = Session.get('command').order.payment;
+		var serving = Session.get('command').serving;
 		switch(status){
 			case "success":
 			return {
 				help: "Your payment has been successful",
 				state: "success",
-				content: '<i class="fa fa-check"></i>',
+				content: '<div id="serving">' + serving + '</div>',
 			}
 			case "fail":
 			return {
 				help: "Your payment has been refused",
 				state: "fail",
-				content: '<i class="fa fa-exclamation"></i>',
+				content: '<div id="payment-total"><i class="fa fa-exclamation"></i></div>',
 			}
 			case "pending":
 			default:
 			return {
 				help: "Beep your card",
 				state: "pending",
-				content: '<i class="fa fa-wifi"></i><div>' + total + '€</div>',
+				content: '<div id="payment-total"><i class="fa fa-wifi"></i><div>' + total + '€</div></div>',
 			}
 		}
 	},
@@ -41,16 +42,11 @@ Template.payment.events({
 			var display = $("#spouts").children().empty();
 			FlowRouter.go("/home");
 			refresh();
-		}, 5000);
+		}, 2000);
 	},
 	'click #success': function (event, template) {
 		var status = Session.get("command");
 		status.order.payment = "success";
 		Session.set("command", status);
-		setTimeout(function(){
-			var display = $("#spouts").children().empty();
-			FlowRouter.go("/home");
-			refresh();
-		}, 5000);
 	},
 });
