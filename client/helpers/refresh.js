@@ -58,9 +58,9 @@ refresh = function(){
 		},
 		serving : serving,
 	}
-	Session.set('command', command )
+	Session.set('command', command );
 
-	$("#price").html('€ ' + total)
+	$("#price").html('€ ' + total);
 
 	messageUno[4] = 0;
 	if (FlowRouter._current.path === "/payment") {messageUno[4] = 1;}
