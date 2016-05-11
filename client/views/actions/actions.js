@@ -1,8 +1,10 @@
 Template.actions.helpers({
-	order: function(){
-		return Session.get('command').order;
+	valid: function(){
+		var valid = State.findOne({name: 'command'});
+		return valid && valid.command.order.valid;
 	},
 	total: function(){
-		return numeral(Session.get('command').order.total).format('000.00');
+		var total = State.findOne({name: 'command'});
+		return total && numeral(total.command.order.total).format('000.00');
 	}
 })

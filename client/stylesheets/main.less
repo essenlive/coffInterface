@@ -19,26 +19,6 @@
 		APP STYLES
 		------------------------------*/
 
-		&.test{
-			font-size: 16px;
-			background: url("/pat.png") repeat;
-			body{
-
-				.pos(absolute;0;0;0;0);
-				height: 1024px;
-				width: 768px;
-				zoom: 0.6;
-				margin: auto;
-				#interface{
-					position: absolute;
-					top: 0 ; left: 0; right: 0; bottom: 0;
-					height: 100%;
-					width: 100%;
-
-				}
-			}
-		}
-
 		body{
 
 
@@ -309,27 +289,33 @@
 				p{
 					margin: 1rem auto;
 				}
-				li{
-					.pos();
-					text-transform: uppercase;
-					font-weight: 300;
-					font-size: 1.3rem;
-					margin: 0.5rem auto;
-					line-height: 1.5rem;
-					height: 1.5rem;
-					text-align: left;
-					padding-left: 1rem; 
-					&:before{
-						content: "";
-						display: block;
-						height: 0.75rem;
-						width: 0.75rem;
-						border-radius: 50%;
-						background: @blue;
-						right: 100%; top: 0;
-						margin: 0.5rem;
+				ul{
+					width: 20vw;
+					margin: auto;
+					.flex(column; center; wrap; center;);					
+					li{
+						.pos();
+						width: 100%;
+						text-transform: uppercase;
+						font-weight: 300;
+						font-size: 1.3rem;
+						margin: 0.5rem auto;
 						line-height: 1.5rem;
-						position: absolute;
+						height: 1.5rem;
+						text-align: left;
+						padding-left: 1rem; 
+						&:before{
+							content: "";
+							display: block;
+							height: 0.75rem;
+							width: 0.75rem;
+							border-radius: 50%;
+							background: @blue;
+							right: 100%; top: 0;
+							margin: 0.5rem;
+							line-height: 1.5rem;
+							position: absolute;
+						}
 					}
 				}
 			}

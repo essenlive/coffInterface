@@ -1,75 +1,96 @@
-// Refresh receipt
-Meteor.startup(function(){
-});
-
 refresh = function(){
-	var display = $("#spouts").children();
-	var spouts = [];
-	var drinks = [];
-	var total = 0;
-	var valid = false;
-	var messageUno = [0,0,0,0,0,9];
+	var display = $('#spouts').children();
+	var command = {
+		spouts : [{
+			drink : 'none',
+			state: 'ready',
+		},
+		{
+			drink : 'none',
+			state : 'ready',
+		},
+		{
+			drink : 'none',
+			state : 'ready',
+		},
+		{
+			drink : 'none',
+			state : 'ready',
+		}],
+		order:{
+			drinks : [],
+			total : 0,
+			valid : false,
+			payment : 'pending',
+			waiting: false,
+		},
+		serving : '',
+	};	var messageUno = [0,0,0,0,0,'z'];
 	var i = 0;
 
 	_.each( display, function(element, index, value){
-		spouts[index] = $(element).find('.drink').data("item");
-		
+		command.spouts[index].drink = $(element).find('.drink').data('item');
 
-		if(_.isNumber($(element).find('.drink').data("price"))){
+		if(_.isNumber($(element).find('.drink').data('price'))){
 			
-			switch($(element).find('.drink').data("item")){
-				case "expresso":
+			switch($(element).find('.drink').data('item')){
+				case 'expresso':
 				messageUno[index] = 1;
 				break;
-				case "lungo":
+				case 'lungo':
 				messageUno[index] = 2;
 				break;
 				default:
-				messageUno[index] = 3;
+				messageUno[index] = 1;
 			};
 
-			drinks[i] = {
-				drink : $(element).find('.drink').data("item"),
-				price : Number($(element).find('.drink').data("price")),
+			command.order.drinks[i] = {
+				drink : $(element).find('.drink').data('item'),
+				price : Number($(element).find('.drink').data('price')),
 			};
 
-			total += Number($(element).find('.drink').data("price"));
-			i++; valid = true;
+			command.order.total += Number($(element).find('.drink').data('price'));
+			i++; command.order.valid = true;
+			command.spouts[index].state = 'ready';
+
 		}
 		else{
-			$(element).removeClass('ready');
+			command.spouts[index].drink = 'none';
+			command.spouts[index].state = 'available';
 			$(element).empty();
 			messageUno[index] = 0;
 		}
-	})
+	});
 
 
-	var serving = $("#spouts").clone();
-	serving.find(".remove").remove();
-	serving = serving.html();
-
-	var command = {
-		spouts : spouts,
-		order : {
-			drinks : drinks,
-			total : total,
-			valid : valid,
-			payment : 'pending',
-		},
-		serving : serving,
-	}
-	Session.set('command', command );
-
-	$("#price").html('€ ' + total);
-
+	var temp = $('#spouts').clone();
+	temp.find('.remove').remove();
+	command.serving = String(temp.html());
+	Meteor.call('updateState',command);
+	
 	messageUno[4] = 0;
-	if (FlowRouter._current.path === "/payment") {messageUno[4] = 1;}
-	messageUno[5] = 9;
-	console.log(messageUno);
-	Meteor.call("sendToSerialPort",messageUno);
-
-
-
+	if (FlowRouter._current.path === '/payment') {messageUno[4] = 1;}
+	messageUno[5] = 'z';
+	messageUno = messageUno.toString().replace(/,/g, '');
+	Meteor.call('sendToSerialPort',messageUno);
 
 	return command;
 }
+
+
+Tracker.autorun(function () {
+	var waiting = State.findOne({name: 'command'});
+	console.log(waiting);
+	if ( waiting ) {
+		console.log("waiting");
+
+		if (waiting.command.order.waiting) {
+			console.log("reset")
+			setTimeout(function(){
+				var display = $("#spouts").children().empty();
+				FlowRouter.go("/home");
+				refresh();
+			}, 2000);
+		}
+	}
+});

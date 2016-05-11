@@ -12,7 +12,7 @@ dragAndDrop = function(){
                 return $(source).hasClass('copy');
             },
             accepts: function (el, target) {
-                return !$(target).hasClass('copy');
+                return $(target).hasClass('available') || $(target).hasClass('ready');
             }
         }
         ).on('over', function (el, container) {
@@ -30,10 +30,6 @@ dragAndDrop = function(){
                 $(target).empty();
                 $(target).prepend($(el));
                 $(target).append('<i class="fa fa-times remove"></>');
-                if(!$(target).hasClass('ready')){
-                    $(target).addClass('ready');
-                }
-
             }
         })
     }
