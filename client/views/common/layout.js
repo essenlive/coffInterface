@@ -37,4 +37,5 @@ Template.layout.onRendered(function(){
 		refresh();
 		dragAndDrop();
 	}, 1000);
+
 });

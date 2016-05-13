@@ -1,5 +1,11 @@
 <template name="payment">
 	<section id="payment" class="{{ status.state }}">
+
+		{{#if status.success}}
+		<div id="payment-success">
+			<i class="fa fa-check"></i>
+		</div>
+		{{/if}}
 		<h2 id="payment-help">Payment
 			<span>			
 				{{ status.help }}
@@ -17,9 +23,6 @@
 				{{/each}}
 			</ul>
 		</div>
-		<a href="/" id="payment-abort">
-			back to ordering
-		</a>
 	</section>
 
 </template>
