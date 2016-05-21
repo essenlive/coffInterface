@@ -11,9 +11,10 @@ Template.layout.events({
 		var display = $("#spouts").children();
 		var choice = $(event.currentTarget).clone();
 		var pos = -1;
-		_.each( display, function(element,index){
-			if($(element).hasClass('available')){
-				pos = index;
+		var spoutOrder = [2,1,3,0].reverse();
+		_.each( spoutOrder, function(element,index){
+			if($(display[element]).hasClass('available')){
+				pos = element;
 			}
 		})
 		if (pos>-1) {
@@ -21,6 +22,7 @@ Template.layout.events({
 			$(display[pos]).prepend(choice);
 			$(display[pos]).append('<i class="fa fa-times remove"></>');
 		}
+		else console.log("full");
 		refresh();
 	},
 	'click .remove':function(event, template) {
